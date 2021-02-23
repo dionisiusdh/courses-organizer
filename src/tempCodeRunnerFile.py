@@ -1,0 +1,2 @@
+
+print(getLowestDegree(g2))

@@ -12,10 +12,13 @@ class Graph:
 
     # Menambahkan sebuah edge ke Graph
     def addEdge(self, e, v):
-        if e not in self.E.keys():
-            self.E[e] = [v]
+        if v == None: # Vertex tanpa derajat masuk
+            self.E[e] = []
         else:
-            self.E[e].append(v)
+            if e not in self.E.keys():
+                self.E[e] = [v]
+            else:
+                self.E[e].append(v)
 
     # Mengoutput struktur graph dengan format contoh:
     # A -> B -> C
@@ -64,7 +67,22 @@ def makeGraphFromTxt(file_name):
 
     # Adding setiap edge yang ada
     for el in res_cleaned:
-        for i in range(1, len(el)):
-            graph.addEdge(el[0], el[i])
+        if (len(el) == 1): # Vertex tanpa derajat masuk
+            graph.addEdge(el[0], None)
+        else:
+            for i in range(1, len(el)):
+                graph.addEdge(el[0], el[i])
 
     return graph
+
+# Mereturn vertex dengan derajat masuk terendah dari sebuah graph
+def getLowestDegree(graph):
+    d = {}
+
+    for k, v in graph.E.items():
+        d[k] = len(v)
+
+    min_v = min(d.values())
+    res = [k for k, v in d.items() if v==min_v]
+
+    return res[0]

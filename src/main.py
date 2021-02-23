@@ -1,13 +1,5 @@
-from graph import Graph, makeGraphFromTxt
-
-g = Graph(6)
-
-g.addEdge(5, 2) 
-g.addEdge(2, 6) 
-g.addEdge(4, 1) 
-g.addEdge(5, 1)
-
-# g.printGraph()
+from graph import Graph, makeGraphFromTxt, getLowestDegree
 
 g2 = makeGraphFromTxt("1")
 g2.printGraph()
+print(f"Lowest degree vertex: {getLowestDegree(g2)}")
