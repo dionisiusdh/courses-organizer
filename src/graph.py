@@ -1,14 +1,11 @@
-import string
-
 """
-Definisi kelas Graph
+Definisi kelas Graph dan method yang berhubungan dengan pemrosesan graph
 """
-from collections import defaultdict
 
 class Graph:
     def __init__ (self, vertices):
-        self.E = dict() # Edges
-        self.V = vertices   # Vertices
+        self.E = dict()     # Edges / Kumpulan edge
+        self.V = vertices   # Vertices / Kumpulan vertex
 
     # Menambahkan sebuah edge ke Graph
     def addEdge(self, e, v):
@@ -31,6 +28,11 @@ class Graph:
                 print("->", end="")
                 print(f" {v_item} ", end="")
             print()
+
+    # Cek apakah sebuah graph kosong
+    # Graph kosong jika vertices dan edge kosong (0)
+    def isGraphEmpty(self):
+        return self.V == 0
 
 # Membaca data graph dari file .txt dan mereturn sebuah Graph
 # Path default : "./test" 
@@ -79,10 +81,25 @@ def makeGraphFromTxt(file_name):
 def getLowestDegree(graph):
     d = {}
 
+    # Mengambil value (derajat masuk) setiap vertex
     for k, v in graph.E.items():
         d[k] = len(v)
 
+    # Mencari value (derajat masuk) terendah
     min_v = min(d.values())
     res = [k for k, v in d.items() if v==min_v]
 
-    return res[0]
+    return res
+
+# Menghapus semua hubungan edge pada graph p dari semua vertex ke vertex x
+def removeAllEdgeFrom(graph, x):
+    # Jika vertex k terhubung dengan x, hapus edge antara k dan x
+    for k, v in graph.E.items():
+        if x in v:
+            v.remove(x)
+ 
+    # Jika vertex tidak punya derajat masuk, maka hapus vertex
+    if len(graph.E[x]) == 0:
+        graph.E.pop(x)
+        graph.V -= 1
+    
