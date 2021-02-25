@@ -1,0 +1,19 @@
+Matematika.
+Matdis, Matematika.
+Stima, Matdis.
+Algeo.
+Logkom.
+Pengkom.
+Alstrukdat, Pengkom.
+OOP, Alstrukdat.
+Orkom, Pengkom.
+OS, Orkom.
+Basdat, Alstrukdat.
+MBD, Basdat, Alstrukdat.
+AI, ML, Matdis.
+ML, Stima, Matdis.
+RPL.
+KP, AI, RPL, MBD, OS.
+KP2, KP.
+TA, KP2, KP.
+TA2, TA.

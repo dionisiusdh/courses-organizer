@@ -44,7 +44,7 @@ def makeGraphFromTxt(file_name):
     all_vertex = list()
     
     # Open dan read file
-    f = open(f"./test/{file_name}.txt", "r")
+    f = open(f"../test/{file_name}.txt", "r")
 
     # Append setiap line ke array result
     for line in f:

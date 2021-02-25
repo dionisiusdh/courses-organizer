@@ -1,8 +1,31 @@
 from graph import *
 
 # Variabel Global
-semester_romawi = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VII'} # Konversi semester angka ke romawi
-exit = False    # Status exit program
+semester_romawi = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 
+                   5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
+                   9: 'IX', 10: 'X', 11: 'XI', 12: 'XII',
+                   13: 'XIII', 14: 'XIV', 15: 'XV', 16: 'XVI',
+                   17: 'XVII', 18: 'XVIII', 19: 'XIX', 20: 'XX'
+                    } # Konversi semester angka ke romawi
+exit = False        # Status exit program
+show_steps = False   # Apakah ingin menampilkan langkah penyelesaian
+
+print("================================================")
+print("   ___                            ___           ")
+print("  / __\___  _   _ _ __ ___  ___  /___\_ __ __ _ ")
+print(" / /  / _ \| | | | '__/ __|/ _ \//  // '__/ _` |")
+print("/ /__| (_) | |_| | |  \__ \  __/ \_//| | | (_| |")
+print("\____/\___/ \__,_|_|  |___/\___\___/ |_|  \__, |")
+print("                                          |___/ ")
+print("================================================")
+print("[ Dionisius Darryl Hermansyah / 13519058 / K02 ]")
+print("       Selamat datang di Course Organizer       ")
+print("================================================")
+
+show_steps_input = str(input("Apakah anda ingin menampilkan langkah-langkah penyelesaian secara detail? (Y/N): "))
+
+if (show_steps_input == "Y" or show_steps_input == "y"):
+    show_steps = True
 
 while (not exit):
     result = []     # Hasil pengambilan mata kuliah
@@ -14,13 +37,16 @@ while (not exit):
 
     # Membuat graph dari file teks terkait
     g2 = makeGraphFromTxt(file_name)
+    
+    print("\nGraf yang anda masukkan: \n")
     g2.printGraph()
 
     # Lakukan iterasi pencarian mata kuliah selama graph belum kosong
     while (not g2.isGraphEmpty()):
         lowest_degree_v = getLowestDegree(g2)   # Mengambil vertex dengan derajat masuk terendah
         
-        print(f"Semester {semester_romawi[semester]} mengambil: {', '.join(lowest_degree_v)}")  # Output matakuliah yang dapat diambil
+        if (show_steps):
+            print(f"\nSemester {semester_romawi[semester]} mengambil: {', '.join(lowest_degree_v)}")  # Output matakuliah yang dapat diambil
 
         # Manipulasi graph dengan mendelete vertex terkait
         curr = []
@@ -28,15 +54,14 @@ while (not exit):
             curr.append(v)
             removeAllEdgeFrom(g2, v)
         result.append(curr)
+        
+        if (show_steps):
+            # Mencetak graph
+            print("\nGraph:")
+            g2.printGraph()
 
-        print(result)
-
-        # Mencetak graph
-        print("\nGraph:")
-        g2.printGraph()
-
-        # Mencetak sisa jumlah mata kuliah
-        print(f"Jumlah mata kuliah tersisa: {g2.V}")
+            # Mencetak sisa jumlah mata kuliah
+            print(f"Jumlah mata kuliah tersisa: {g2.V}")
 
         semester += 1
 

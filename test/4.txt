@@ -1,0 +1,10 @@
+Matematika_Lanjutan, Matematika_Dasar.
+Fisika_Lanjutan, Fisika_Dasar.
+Matematika_Dasar.
+Fisika_Dasar.
+Kalkulus, Matematika_Lanjutan, Matematika_Dasar.
+Kalkulus_Lanjutan, Kalkulus, Fisika_Lanjutan, Matematika_Lanjutan, Matematika_Dasar.
+Biologi_Dasar.
+Kimia_Dasar.
+Biokimia, Biologi_Dasar, Kimia_Dasar.
+Kerja_Praktek, Biokimia, Kalkulus_Lanjutan.
