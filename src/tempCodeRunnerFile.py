@@ -1,2 +1,0 @@
-
-print(getLowestDegree(g2))

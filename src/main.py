@@ -1,3 +1,7 @@
+"""
+Main Program
+"""
+
 from graph import *
 
 # Variabel Global
