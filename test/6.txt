@@ -16,4 +16,3 @@ RPL.
 KP, AI, RPL, MBD, OS.
 KP2, KP.
 TA, KP2, KP.
-TA2, TA.
