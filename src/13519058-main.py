@@ -2,6 +2,7 @@
 Main Program
 """
 
+# Import graph module
 graphm = __import__("13519058-graph")
 
 # Variabel Global
