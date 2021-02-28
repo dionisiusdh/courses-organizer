@@ -2,7 +2,7 @@
 Main Program
 """
 
-from graph import *
+graphm = __import__("13519058-graph")
 
 # Variabel Global
 semester_romawi = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 
@@ -37,14 +37,14 @@ while (not exit):
     file_name = str(input("\nMasukkan nama file yang ingin diproses (tanpa path / ekstensi, contoh: 3): "))
 
     # Membuat graph dari file teks terkait
-    g2 = makeGraphFromTxt(file_name)
+    g2 = graphm.makeGraphFromTxt(file_name)
     
     print("\nGraf yang anda masukkan: \n")
     g2.printGraph()
 
     # Lakukan iterasi pencarian mata kuliah selama graph belum kosong
     while (not g2.isGraphEmpty()):
-        lowest_degree_v = getLowestDegree(g2)   # Mengambil vertex dengan derajat masuk terendah
+        lowest_degree_v = graphm.getLowestDegree(g2)   # Mengambil vertex dengan derajat masuk terendah
         
         if (show_steps):
             print(f"\nSemester {semester_romawi[semester]} mengambil: {', '.join(lowest_degree_v)}")  # Output matakuliah yang dapat diambil
@@ -53,7 +53,7 @@ while (not exit):
         curr = []
         for v in lowest_degree_v:
             curr.append(v)
-            removeAllEdgeFrom(g2, v)
+            graphm.removeAllEdgeFrom(g2, v)
         result.append(curr)
         
         if (show_steps):

@@ -12,7 +12,12 @@ Dionisius Darryl H. / 13519058 / K02
 * [How to use](#how-to-use)
 
 ## General info
-A python program to organize courses plan using topological sort algorithm.
+A python program to organize courses plan using topological sort and decrease &amp; conquer algorithm.
+How the algorithm:
+1. Find the vertex with lowest in-degree
+2. Split the graph into two sub-section: One is the vertex with the lowest in-degree, and the rest is simply all the other vertex
+3. Delete the vertex from the graph and remove all the edges that are corresponding do it
+4. Repeat step 2 to 4 until the graph is empty
 
 ## Requirements
 * Python 3
