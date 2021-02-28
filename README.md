@@ -13,7 +13,7 @@ Dionisius Darryl H. / 13519058 / K02
 
 ## General info
 A python program to organize courses plan using topological sort and decrease &amp; conquer algorithm.
-How the algorithm:
+How the algorithm works:
 1. Find the vertex with lowest in-degree
 2. Split the graph into two sub-section: One is the vertex with the lowest in-degree, and the rest is simply all the other vertex
 3. Delete the vertex from the graph and remove all the edges that are corresponding do it
